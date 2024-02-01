@@ -1,0 +1,28 @@
+git clone git@github.com:1105-kranz-andrew/variable.git
+[1105-kranz-andrew]$ cat hello-runner.sh
+echo "This script captures the custom env variables and prints their values"
+echo "language: 'Test 1 100%'"
+echo "message 'Test 2 98%'"
+echo "text 'Test 3 88%'"
+[1105-kranz-andrew]$ chmod 755 hello-runner.sh
+[1105-kranz-andrew]$ cat .github/workflows/customflow.yml
+name: Github Actions Custom Test Score Workflow Demo
+run-nameL ${{github.actor }} is testing Github Actions Test Scores 📈
+on: [push]
+test:
+  Explore-Github-Actions-Customs-Workflow:
+    runs-on: ubuntu-lastest
+    steps
+    -test1: Check out repository code
+    uses: actions/checkout@v3
+    -test2: excute bash script
+    run: ${{ github.workspace }} /hello-runner.sh $langauage $ message $text
+    env:
+      langauge: "bash"
+      message: "Hello Github Actions"
+      Text: "Check Test 3"
+[1105-kranz-andrew]$ git add .
+
+[1105-kranz-andrew]$ git commit -m "create and update custom workflow"
+
+[1105-kranz-andrew]$ git push -u orgin main              
